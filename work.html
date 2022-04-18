@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="./playerjs.js" async></script>
+</head>
+<body>
+<video width="400" height="300" controls="controls">
+	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+</video>
+<video width="400" height="300" controls="controls">
+	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+</video>
+<video width="400" height="300" controls="controls">
+	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+</video>
+<video width="400" height="300" controls="controls">
+	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+</video>
+<video width="400" height="300" controls="controls">
+	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+</video>
+
+<div id="video1"></div>
+<script type="text/javascript">
+	function PlayerjsAsync () {
+		const players = [];
+
+		const videos = document.querySelectorAll("video");
+		const videosArray = videos instanceof NodeList ? Array.from(videos) : [];
+		if (Array.isArray(videosArray)) {
+			videosArray.forEach((video, videoIndex) => {
+				const loadVideoPlayer = () => {
+					const videoId = `contentBody-video-${videoIndex}`;
+					const videoSrc = video.currentSrc;
+					const divVideo = document.createElement("div");
+					divVideo.setAttribute("id", videoId);
+					video?.parentNode?.replaceChild?.(divVideo, video);
+					if (window?.Playerjs && videoId && videoSrc) {
+						const player = new Playerjs({ id: videoId, file: videoSrc });
+						players.push(player);
+					}
+				};
+				video.addEventListener("loadedmetadata", loadVideoPlayer);
+			})
+		}
+
+		var player2 = new Playerjs({id:"video1", file: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"});
+
+		setTimeout(() => {
+			alert('Сейчас будет удаление всех плееров через player.api("destroy")');
+			players.forEach(player => {
+				player.api('destroy');
+			});
+			player2.api('destroy');
+		}, 5000)
+	}
+
+
+
+
+
+</script>
+</body>
+</html>
