@@ -8,19 +8,19 @@
 	<script src="./playerjs.js" async></script>
 </head>
 <body>
-<video width="400" height="300" controls="controls">
+<video id="videoPlayer1" width="400" height="300" controls="controls">
 	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
 </video>
-<video width="400" height="300" controls="controls">
+<video id="videoPlayer2" width="400" height="300" controls="controls">
 	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
 </video>
-<video width="400" height="300" controls="controls">
+<video id="videoPlayer3" width="400" height="300" controls="controls">
 	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
 </video>
-<video width="400" height="300" controls="controls">
+<video id="videoPlayer4" width="400" height="300" controls="controls">
 	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
 </video>
-<video width="400" height="300" controls="controls">
+<video id="videoPlayer5" width="400" height="300" controls="controls">
 	<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
 </video>
 
@@ -32,7 +32,11 @@
 
 		setTimeout(() => {
 			alert('Сейчас будет удаление всех плееров через player.api("destroy")');
-			player.api('destroy');
+			videoPlayer1.api('destory');
+			videoPlayer2.api('destory');
+			videoPlayer3.api('destory');
+			videoPlayer4.api('destory');
+			videoPlayer5.api('destory');
 			player2.api('destroy');
 		}, 5000)
 	}
